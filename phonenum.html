@@ -1,0 +1,17 @@
+<h2> input your phone number.</h2>
+<input id="phoneNumberText" placeholder="phonenum" type="tel">
+<p id="warningMessage"></p>
+    <script>
+    const phoneNumberText = document.querySelector('#phoneNumberText');
+
+    const warningMessage = document.querySelector('#warningMessage');
+phoneNumberTeext.addEventListener('keyup',() => {
+    const phoneNumber = phoneNumberText.value;
+    const trimmedphoneNumber = phoneNumber.replace(/-/g,'');
+
+    if (/^[0][0-9]{9,10}$/.test(trimmedPhoneNumber) === false) {
+        warningMessage.innerText = 'collect form phonenumber';
+    } else {
+        warningMessage.innerText = '';
+    }
+});
