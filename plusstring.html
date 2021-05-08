@@ -1,0 +1,24 @@
+<div class="name_constainer">
+    <label>firstname<input id="familyNameText" class="text" type="text"></label>
+    <label>familyname<input id="firstNameText" class="text" type="text"></label>
+</div>
+<p id = "fullName"></p>
+    <script>
+        const familyNameText = document.querySelector('#familyNameText');
+        
+        const firstNameText = document.querySelector('#firstNameText');
+        
+        const fullName = document.querySelector('#fullName');
+        
+        firstNameText.addEventListener('keyup', onKeyUp);
+        familyNameText.addEventListener('keyup', onKeyUp);
+        
+        function onkeyUp(){
+            const familyName = familyNameText.value;
+            
+            const firstName = firstNameText.value;
+            
+            <!-- fullName.innerHTML = familyName + ' ' + firstName; -->
+            fullName.innerHTML = `${familyName}${firstName}`;
+        }
+    </script>
