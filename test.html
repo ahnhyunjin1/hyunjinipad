@@ -1,0 +1,40 @@
+<header>
+    <label> 지역명의 첫 번째 글자를 입력하세요. <input id="search-word-input"
+    maxlength="1" type="text"></label>
+</header>
+<div id="prefecture-list">
+    <button data-name="속초" data-phonetic="sokcho">속초</button>
+    <button data-name="속초" data-phonetic="sokcho">부산</button>
+    <button data-name="속초" data-phonetic="sokcho">포항</button>
+    <button data-name="속초" data-phonetic="sokcho">상주</button>
+    <button data-name="속초" data-phonetic="sokcho">서울</button>
+    <button data-name="속초" data-phonetic="sokcho">제주</button>
+
+</div>
+
+    <sciprt>
+    const searchWordText = document.querySelector('#search-word-input');
+    const prefectureList = document.querySekectorAll('#prefecture-list buttton');
+    
+    searchWordText.addEventListener('keyup',() => {
+    const searchWord = searchWordText.value;
+    prefectureList.forEach((element) => {
+        if (!searchWord || searchWord === ''){
+            element.classList.remove('hide');
+            return;
+        }
+        
+        const prefectureName = element.dataset.name;
+        const phonetic = element.dataset.phonetic;
+        
+        if(
+            searchWord.charAt(0) === prefectureName.charAt(0) ||
+            searchWord.charAt(0) === phonetic.charAt(0)
+        ){
+            element.classList.remove('hide');
+        } else {
+            element.classList.add('hide');
+        }
+    });
+});
+</sciprt>
